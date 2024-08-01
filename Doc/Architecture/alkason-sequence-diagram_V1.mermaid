@@ -1,0 +1,54 @@
+sequenceDiagram
+    participant UI as Web-based Configuration UI
+    participant TSE as Trading Strategy Engine
+    participant SDM as Stock Data Manager
+    participant MA as Main Analysis
+    participant TA as Technical Analysis
+    participant SA as Sentiment Analysis
+    participant IA as Intermarket Analysis
+    participant AIM as AI Analysis Module
+    participant DME as Decision Making Engine
+    participant RMM as Risk Management
+    participant OEM as Order Management System
+    participant SOR as Smart Order Router
+    participant BA as Broker API
+    participant VDB as Vector Database
+    participant LMS as Logging Service
+
+    UI->>TSE: Initialize trading session
+    TSE->>SDM: Request market data
+    SDM->>BA: Fetch market data
+    BA-->>SDM: Return market data
+    SDM-->>TSE: Return processed market data
+    TSE->>MA: Send market data for analysis
+    MA->>TA: Perform technical analysis
+    TA-->>MA: Return technical indicators
+    MA->>SA: Perform sentiment analysis
+    SA-->>MA: Return sentiment data
+    MA->>IA: Perform intermarket analysis
+    IA-->>MA: Return intermarket data
+    MA->>AIM: Request AI analysis
+    AIM->>AIM: Prepare data
+    AIM->>AIM: Generate AI recommendation
+    AIM-->>MA: Return AI analysis results
+    MA-->>TSE: Return comprehensive analysis
+    TSE->>DME: Send market data and analysis
+    DME->>VDB: Query similar patterns
+    VDB-->>DME: Return matching patterns
+    DME->>DME: Generate trade signal
+    DME->>RMM: Send proposed trade
+    RMM->>RMM: Assess risk and adjust trade
+    RMM-->>DME: Return risk-adjusted trade
+    DME->>OEM: Send trade order
+    OEM->>SOR: Route order
+    SOR->>BA: Submit order
+    BA-->>SOR: Confirm order receipt
+    SOR-->>OEM: Return order status
+    OEM->>LMS: Log order details
+    BA-->>SOR: Send order fill confirmation
+    SOR-->>OEM: Return fill confirmation
+    OEM->>LMS: Log trade execution
+    OEM-->>DME: Report trade execution
+    DME->>VDB: Store new trade pattern
+    DME-->>TSE: Report trading activity
+    TSE-->>UI: Update trading status

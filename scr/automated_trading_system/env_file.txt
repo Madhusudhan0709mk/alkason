@@ -1,0 +1,19 @@
+# API Keys
+ALPHA_VANTAGE_API_KEY=your_alpha_vantage_api_key
+NEWS_API_KEY=your_news_api_key
+AZURE_TEXT_ANALYTICS_KEY=your_azure_text_analytics_key
+
+# Azure OpenAI
+AZURE_OPENAI_API_KEY=your_azure_openai_api_key
+AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
+
+# Database
+DATABASE_URL=your_database_url
+
+# Broker API Keys
+ALPACA_API_KEY=your_alpaca_api_key
+ALPACA_API_SECRET=your_alpaca_api_secret
+
+# Other Configuration
+DEBUG=False
+LOG_LEVEL=INFO

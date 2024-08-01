@@ -1,0 +1,70 @@
+graph TB
+    subgraph PL[Presentation Layer]
+        UI[Web-based Configuration UI]
+    end
+
+    subgraph BLL[Business Logic Layer]
+        TSE[Trading Strategy Engine]
+        DME[Decision Making Engine]
+        RMM[Risk Management Module]
+        OEM[Order Execution Module]
+        AIM[AI Analysis Module]
+    end
+
+    subgraph DAL[Data Access Layer]
+        CR[(Configuration Repository)]
+        VDB[(Vector Database)]
+    end
+
+    subgraph IL[Infrastructure Layer]
+        LMS[Logging Service]
+        AAS[Authentication and Authorization Service]
+    end
+
+    subgraph EI[External Integrations]
+        AIP[AI Providers]
+        BA[Broker APIs]
+    end
+
+    %% Connections
+    UI <--> CR
+    UI <--> AAS
+
+    BA <--> TSE
+    BA <--> AIM
+    BA <--> RMM
+    BA <--> OEM
+    TSE <--> DME
+    DME <--> AIM
+    DME <--> RMM
+    DME <--> OEM
+    AIM <--> AIP
+
+    VDB <--> DME
+
+    LMS --> TSE
+    LMS --> DME
+    LMS --> RMM
+    LMS --> OEM
+    LMS --> AIM
+
+    AAS --> TSE
+    AAS --> DME
+    AAS --> OEM
+
+    %% Data flows
+    BA --> TSE
+    BA --> AIM
+    BA --> RMM
+    VDB --> DME
+    CR --> TSE
+    CR --> RMM
+    CR --> OEM
+
+    %% Styling
+    style PL fill:#e6e6e6,stroke:#333,stroke-width:2px
+    style BLL fill:#e6e6e6,stroke:#333,stroke-width:2px
+    style DAL fill:#e6e6e6,stroke:#333,stroke-width:2px
+    style IL fill:#e6e6e6,stroke:#333,stroke-width:2px
+    style EI fill:#e6e6e6,stroke:#333,stroke-width:2px
+

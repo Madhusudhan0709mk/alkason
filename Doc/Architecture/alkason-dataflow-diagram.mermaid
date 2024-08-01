@@ -1,0 +1,66 @@
+graph TD
+    subgraph External_Entities
+        T[Trader]
+        BA[Broker API]
+        AIP[AI Provider]
+    end
+
+    subgraph Processes
+        1[Configure System]
+        2[Gather Market Data]
+        3[Perform Technical Analysis]
+        4[Conduct AI Analysis]
+        5[Make Trading Decisions]
+        6[Execute Orders]
+        7[Manage Risk]
+        8[Log System Activities]
+    end
+
+    subgraph Data_Stores
+        CR[(Configuration Repository)]
+        VDB[(Vector Database)]
+    end
+
+    %% Data Flows
+    T -->|System parameters| 1
+    1 -->|Updated configuration| CR
+    CR -->|Configuration data| 2
+    CR -->|Configuration data| 3
+    CR -->|Configuration data| 4
+    CR -->|Configuration data| 5
+    CR -->|Configuration data| 6
+    CR -->|Configuration data| 7
+
+    BA -->|Market data| 2
+    2 -->|Processed market data| 3
+    2 -->|Processed market data| 4
+    2 -->|Processed market data| 5
+
+    3 -->|Technical indicators| 5
+    
+    4 -->|AI predictions| AIP
+    AIP -->|AI model outputs| 4
+    4 -->|Analyzed data| 5
+
+    5 -->|Similar patterns query| VDB
+    VDB -->|Matching patterns| 5
+    5 -->|Trade decision| 6
+    5 -->|New trade pattern| VDB
+
+    6 -->|Order details| BA
+    BA -->|Order confirmation| 6
+    6 -->|Executed trade info| 7
+    6 -->|Trade logs| 8
+
+    7 -->|Risk assessment| 5
+    
+    8 -->|System logs| T
+
+    %% Styling
+    classDef process fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef datastore fill:#fd8,stroke:#333,stroke-width:2px;
+    classDef external fill:#9cf,stroke:#333,stroke-width:2px;
+    class 1,2,3,4,5,6,7,8 process;
+    class CR,VDB datastore;
+    class T,BA,AIP external;
+

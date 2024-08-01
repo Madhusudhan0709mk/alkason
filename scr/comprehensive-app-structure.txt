@@ -1,0 +1,137 @@
+automated_trading_system/
+│
+├── main.py
+├── requirements.txt
+├── .env
+│
+├── api/
+│   ├── __init__.py
+│   ├── routes.py
+│   └── auth.py
+│
+├── web/
+│   ├── __init__.py
+│   ├── web_server.py
+│   └── config_management_ui.py
+│
+├── config/
+│   ├── __init__.py
+│   ├── config_manager.py
+│   └── settings.yaml
+│
+├── models/
+│   ├── __init__.py
+│   └── config_models.py
+│
+├── database/
+│   ├── __init__.py
+│   └── models.py
+│
+├── business_logic/
+│   ├── __init__.py
+│   ├── trading_engine.py
+│   ├── trading_strategy_interface.py
+│   └── strategies/
+│       ├── __init__.py
+│       └── moving_average_crossover_strategy.py
+│
+├── analysis/
+│   ├── __init__.py
+│   ├── technical_analysis.py
+│   ├── sentiment_analysis.py
+│   ├── intermarket_analysis.py
+│   ├── main_analysis.py
+│   ├── pattern_analysis.py
+│   ├── post_trade_analysis.py
+│   └── continuous_improvement.py
+│
+├── ai_analysis/
+│   ├── __init__.py
+│   ├── data_preparation.py
+│   ├── ai_provider_factory.py
+│   ├── ai_recommendation_system.py
+│   ├── ai_performance_tracker.py
+│   └── main_ai_analysis.py
+│
+├── decision_making/
+│   ├── __init__.py
+│   ├── pattern_matching.py
+│   ├── trade_decision_adjuster.py
+│   ├── risk_management.py
+│   └── decision_engine.py
+│
+├── order_execution/
+│   ├── __init__.py
+│   ├── broker_api_factory.py
+│   ├── order_management_system.py
+│   └── smart_order_router.py
+│
+├── data/
+│   ├── __init__.py
+│   ├── data_fetcher.py
+│   ├── stock_data_manager.py
+│   ├── vector_database.py
+│   ├── vector_database_enhancement.py
+│   └── stock_watchlist.py
+│
+├── data_access/
+│   ├── __init__.py
+│   └── repository_interface.py
+│
+├── infrastructure/
+│   ├── __init__.py
+│   ├── logging_service.py
+│   ├── error_handling_failsafe.py
+│   ├── security.py
+│   ├── scalability_performance.py
+│   ├── messaging.py
+│   ├── market_data_subject.py
+│   ├── market_data_service.py
+│   ├── di_container.py
+│   ├── plugin_loader.py
+│   └── reporting_monitoring.py
+│
+├── external_integrations/
+│   ├── __init__.py
+│   └── provider_factories.py
+│
+├── repositories/
+│   ├── __init__.py
+│   └── config_repository.py
+│
+├── services/
+│   ├── __init__.py
+│   └── audit_log.py
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_config_routes.py
+│   ├── test_data_fetcher.py
+│   ├── test_technical_analysis.py
+│   └── test_decision_engine.py
+│
+└── frontend/
+    ├── public/
+    │   └── index.html
+    ├── src/
+    │   ├── components/
+    │   │   ├── Dashboard.jsx
+    │   │   ├── StockConfig.jsx
+    │   │   ├── DataProviderConfig.jsx
+    │   │   ├── BrokerConfig.jsx
+    │   │   ├── AIModelConfig.jsx
+    │   │   ├── TradingStrategyConfig.jsx
+    │   │   ├── RiskManagementConfig.jsx
+    │   │   ├── SystemSettings.jsx
+    │   │   ├── PerformanceMonitoring.jsx
+    │   │   ├── Login.jsx
+    │   │   ├── Navbar.jsx
+    │   │   └── ErrorBoundary.jsx
+    │   ├── services/
+    │   │   └── api.js
+    │   ├── __tests__/
+    │   │   └── StockConfig.test.js
+    │   ├── App.jsx
+    │   └── index.js
+    ├── package.json
+    └── README.md

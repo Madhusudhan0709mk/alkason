@@ -1,0 +1,56 @@
+# General Settings
+app_name: "Automated Trading System"
+debug_mode: false
+
+# Trading Settings
+trading_interval: 300  # in seconds
+
+# Data Sources
+stock_data_api:
+  provider: "alpha_vantage"
+  api_key: "YOUR_ALPHA_VANTAGE_API_KEY"
+
+news_data_api:
+  provider: "newsapi"
+  api_key: "YOUR_NEWSAPI_API_KEY"
+
+# Analysis Settings
+technical_analysis:
+  sma_periods: [20, 50, 200]
+  rsi_period: 14
+  macd_params:
+    fast_period: 12
+    slow_period: 26
+    signal_period: 9
+
+sentiment_analysis:
+  azure_text_analytics:
+    endpoint: "YOUR_AZURE_ENDPOINT"
+    key: "YOUR_AZURE_KEY"
+
+# AI Analysis Settings
+azure_openai:
+  deployment_name: "your-deployment-name"
+  model_name: "your-model-name"
+  api_base: "https://your-resource-name.openai.azure.com/"
+  api_version: "2023-05-15"
+  api_key: "your-api-key"
+
+anthropic:
+  model_name: "claude-3-sonnet-20240229"
+  api_key: "your-anthropic-api-key"
+
+# Database
+vector_db:
+  host: "localhost"
+  port: 6333
+
+# Logging
+logging:
+  level: "INFO"
+  file: "trading_system.log"
+
+# Web Server
+web_server:
+  host: "0.0.0.0"
+  port: 8000

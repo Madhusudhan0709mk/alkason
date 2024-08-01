@@ -1,0 +1,78 @@
+# Core dependencies
+aiohttp
+asyncpg
+fastapi
+uvicorn
+pydantic
+
+# Data processing and analysis
+numpy
+pandas
+scipy
+scikit-learn
+ta-lib
+yfinance
+
+# Vector Database
+qdrant-client
+
+# Machine Learning and AI
+azure-ai-textanalytics
+azure-cognitiveservices-language-textanalytics
+azure-ai-anomalydetector
+langchain
+openai
+anthropic
+
+# Database and caching
+redis
+aioredis
+
+# Time series analysis
+tslearn
+
+# Async support
+asyncio
+aiofiles
+
+# Configuration management
+pyyaml
+python-dotenv
+
+# Dependency injection
+dependency-injector
+
+# Logging
+loguru
+
+# Web framework
+fastapi
+uvicorn
+
+# Security
+python-jose[cryptography]
+passlib[bcrypt]
+
+# Testing
+pytest
+pytest-asyncio
+pytest-cov
+
+# Development tools
+black
+isort
+mypy
+flake8
+
+# Frontend development (if needed)
+nodejs
+npm
+
+# Production
+gunicorn
+
+# Monitoring
+prometheus-client
+
+# Documentation
+Sphinx

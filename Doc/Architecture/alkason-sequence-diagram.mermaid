@@ -1,0 +1,37 @@
+sequenceDiagram
+    participant UI as Web-based Configuration UI
+    participant TSE as Trading Strategy Engine
+    participant AIM as AI Analysis Module
+    participant DME as Decision Making Engine
+    participant RMM as Risk Management Module
+    participant OEM as Order Execution Module
+    participant BA as Broker API
+    participant AIP as AI Provider
+    participant VDB as Vector Database
+    participant LMS as Logging Service
+
+    UI->>TSE: Initialize trading session
+    TSE->>BA: Request market data
+    BA-->>TSE: Return market data
+    TSE->>AIM: Send market data for analysis
+    AIM->>AIP: Request AI prediction
+    AIP-->>AIM: Return AI prediction
+    AIM-->>TSE: Return analysis results
+    TSE->>DME: Send market data and analysis
+    DME->>VDB: Query similar patterns
+    VDB-->>DME: Return matching patterns
+    DME->>DME: Generate trade signal
+    DME->>RMM: Send proposed trade
+    RMM->>RMM: Assess risk and adjust trade
+    RMM-->>DME: Return risk-adjusted trade
+    DME->>OEM: Send trade order
+    OEM->>BA: Submit order
+    BA-->>OEM: Confirm order receipt
+    OEM->>LMS: Log order details
+    BA-->>OEM: Send order fill confirmation
+    OEM->>LMS: Log trade execution
+    OEM-->>DME: Report trade execution
+    DME->>VDB: Store new trade pattern
+    DME-->>TSE: Report trading activity
+    TSE-->>UI: Update trading status
+

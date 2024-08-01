@@ -1,0 +1,107 @@
+graph TB
+    subgraph PL[Presentation Layer]
+        UI[Web-based Configuration UI]
+        CMU[Config Management UI]
+    end
+
+    subgraph BLL[Business Logic Layer]
+        TSE[Trading Strategy Engine]
+        MA[Main Analysis]
+        AIM[AI Analysis Module]
+        DME[Decision Making Engine]
+        RMM[Risk Management Module]
+        OEM[Order Execution Module]
+        SOR[Smart Order Router]
+    end
+
+    subgraph DAL[Data Access Layer]
+        CR[(Configuration Repository)]
+        VDB[(Vector Database)]
+        SDM[Stock Data Manager]
+    end
+
+    subgraph IL[Infrastructure Layer]
+        LMS[Logging Service]
+        AAS[Authentication Service]
+        EHS[Error Handling Service]
+        SPM[Scalability & Performance]
+        MSG[Messaging Service]
+        WS[Web Server]
+    end
+
+    subgraph EI[External Integrations]
+        AIP[AI Providers]
+        BA[Broker APIs]
+    end
+
+    subgraph NML[New Machine Learning Layer]
+        TSA[Time Series Analysis]
+        SAX[SAX Transformation]
+        PM[Pattern Matching]
+    end
+
+    %% New connections
+    AIM --> TSA
+    TSA --> SAX
+    SAX --> PM
+    PM --> DME
+
+    %% Existing connections
+    UI <--> CMU
+    CMU <--> WS
+    WS <--> AAS
+    WS <--> CR
+
+    TSE <--> SDM
+    TSE <--> MA
+    MA <--> AIM
+    TSE <--> DME
+    DME <--> RMM
+    DME <--> OEM
+    OEM <--> SOR
+
+    SDM <--> BA
+    AIM <--> AIP
+    SOR <--> BA
+
+    VDB <--> DME
+    CR <--> TSE
+    CR <--> RMM
+    CR <--> OEM
+
+    LMS --- TSE & DME & RMM & OEM & AIM
+    EHS --- TSE & DME & OEM
+    SPM --- TSE & SDM & OEM
+    MSG --- TSE & SDM & OEM
+
+    %% Styling
+    style PL fill:#E6F3FF,stroke:#2C3E50,stroke-width:2px
+    style BLL fill:#FFF0F5,stroke:#2C3E50,stroke-width:2px
+    style DAL fill:#F0FFF0,stroke:#2C3E50,stroke-width:2px
+    style IL fill:#FFF5E6,stroke:#2C3E50,stroke-width:2px
+    style EI fill:#F5F5F5,stroke:#2C3E50,stroke-width:2px
+    style NML fill:#E6E6FA,stroke:#2C3E50,stroke-width:2px
+
+    style UI fill:#4A90E2,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style CMU fill:#4A90E2,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style TSE fill:#FF6B6B,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style MA fill:#FF6B6B,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style AIM fill:#FF6B6B,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style DME fill:#FF6B6B,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style RMM fill:#FF6B6B,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style OEM fill:#FF6B6B,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style SOR fill:#FF6B6B,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style CR fill:#66CC99,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style VDB fill:#66CC99,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style SDM fill:#66CC99,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style LMS fill:#FFA07A,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style AAS fill:#FFA07A,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style EHS fill:#FFA07A,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style SPM fill:#FFA07A,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style MSG fill:#FFA07A,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style WS fill:#FFA07A,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style AIP fill:#A9A9A9,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style BA fill:#A9A9A9,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style TSA fill:#9370DB,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style SAX fill:#9370DB,stroke:#2C3E50,stroke-width:2px,color:#FFF
+    style PM fill:#9370DB,stroke:#2C3E50,stroke-width:2px,color:#FFF

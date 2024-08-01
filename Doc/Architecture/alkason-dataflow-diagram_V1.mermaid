@@ -1,0 +1,90 @@
+graph TD
+    subgraph External_Entities[External Entities]
+        T[Trader]
+        BA[Broker API]
+        AIP[AI Provider]
+    end
+
+    subgraph Processes[Processes]
+        1[Configure System]
+        2[Gather Market Data]
+        3[Perform Main Analysis]
+        4[Conduct AI Analysis]
+        5[Make Trading Decisions]
+        6[Execute Orders]
+        7[Manage Risk]
+        8[Log System Activities]
+    end
+
+    subgraph Data_Stores[Data Stores]
+        CR[(Configuration Repository)]
+        VDB[(Vector Database)]
+    end
+
+    subgraph Sub_Processes[Sub Processes]
+        3A[Technical Analysis]
+        3B[Sentiment Analysis]
+        3C[Intermarket Analysis]
+        6A[Order Management]
+        6B[Smart Order Routing]
+    end
+
+    %% Data Flows
+    T -->|System parameters| 1
+    1 -->|Updated configuration| CR
+    CR -->|Configuration data| 2
+    CR -->|Configuration data| 3
+    CR -->|Configuration data| 4
+    CR -->|Configuration data| 5
+    CR -->|Configuration data| 6
+    CR -->|Configuration data| 7
+
+    BA -->|Market data| 2
+    2 -->|Processed market data| 3
+    2 -->|Processed market data| 4
+    2 -->|Processed market data| 5
+
+    3 -->|Analysis request| 3A
+    3 -->|Analysis request| 3B
+    3 -->|Analysis request| 3C
+    3A -->|Technical indicators| 3
+    3B -->|Sentiment data| 3
+    3C -->|Intermarket data| 3
+    3 -->|Comprehensive analysis| 5
+    
+    4 -->|AI analysis request| AIP
+    AIP -->|AI predictions| 4
+    4 -->|AI recommendations| 5
+
+    5 -->|Pattern query| VDB
+    VDB -->|Matching patterns| 5
+    5 -->|Trade decision| 6
+    5 -->|New trade pattern| VDB
+
+    6 -->|Order details| 6A
+    6A -->|Order routing| 6B
+    6B -->|Order submission| BA
+    BA -->|Order confirmation| 6B
+    6B -->|Order status| 6A
+    6A -->|Execution report| 5
+    6 -->|Trade logs| 8
+
+    7 -->|Risk assessment| 5
+    
+    8 -->|System logs| T
+
+    %% Styling
+    classDef process fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef subprocess fill:#fcf,stroke:#333,stroke-width:2px;
+    classDef datastore fill:#fd8,stroke:#333,stroke-width:2px;
+    classDef external fill:#9cf,stroke:#333,stroke-width:2px;
+    class 1,2,3,4,5,6,7,8 process;
+    class 3A,3B,3C,6A,6B subprocess;
+    class CR,VDB datastore;
+    class T,BA,AIP external;
+
+    %% Subgraph styling
+    style External_Entities fill:#e6f3ff,stroke:#333,stroke-width:2px;
+    style Processes fill:#fff5fa,stroke:#333,stroke-width:2px;
+    style Data_Stores fill:#fff6e6,stroke:#333,stroke-width:2px;
+    style Sub_Processes fill:#fcf0ff,stroke:#333,stroke-width:2px;
