@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function SystemSettings() {
+const SystemSettings = () => {
   const [settings, setSettings] = useState({
     tradingInterval: 0,
     backtestingStartDate: '',
@@ -118,6 +118,6 @@ function SystemSettings() {
       </form>
     </div>
   );
-}
+};
 
 export default SystemSettings;

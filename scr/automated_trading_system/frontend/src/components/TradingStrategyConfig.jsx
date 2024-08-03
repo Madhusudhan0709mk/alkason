@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function TradingStrategyConfig() {
+const TradingStrategyConfig = () => {
   const [strategies, setStrategies] = useState([]);
   const [newStrategy, setNewStrategy] = useState({ 
     name: '', 
@@ -71,8 +71,18 @@ function TradingStrategyConfig() {
     <div className="trading-strategy-config">
       <h2>Trading Strategy Configurations</h2>
       <form onSubmit={handleSubmit}>
-        <input name="name" value={newStrategy.name} onChange={handleInputChange} placeholder="Strategy Name" required />
-        <select name="type" value={newStrategy.type} onChange={handleInputChange}>
+        <input 
+          name="name" 
+          value={newStrategy.name} 
+          onChange={handleInputChange} 
+          placeholder="Strategy Name" 
+          required 
+        />
+        <select 
+          name="type" 
+          value={newStrategy.type} 
+          onChange={handleInputChange}
+        >
           <option value="">Select Strategy Type</option>
           <option value="momentum">Momentum</option>
           <option value="mean_reversion">Mean Reversion</option>
@@ -81,30 +91,71 @@ function TradingStrategyConfig() {
         </select>
         {newStrategy.type === 'momentum' && (
           <>
-            <input name="lookback_period" type="number" onChange={handleParameterChange} placeholder="Lookback Period" />
-            <input name="threshold" type="number" step="0.01" onChange={handleParameterChange} placeholder="Momentum Threshold" />
+            <input 
+              name="lookback_period" 
+              type="number" 
+              onChange={handleParameterChange} 
+              placeholder="Lookback Period" 
+            />
+            <input 
+              name="threshold" 
+              type="number" 
+              step="0.01" 
+              onChange={handleParameterChange} 
+              placeholder="Momentum Threshold" 
+            />
           </>
         )}
         {newStrategy.type === 'mean_reversion' && (
           <>
-            <input name="ma_period" type="number" onChange={handleParameterChange} placeholder="Moving Average Period" />
-            <input name="std_dev" type="number" step="0.1" onChange={handleParameterChange} placeholder="Standard Deviation" />
+            <input 
+              name="ma_period" 
+              type="number" 
+              onChange={handleParameterChange} 
+              placeholder="Moving Average Period" 
+            />
+            <input 
+              name="std_dev" 
+              type="number" 
+              step="0.1" 
+              onChange={handleParameterChange} 
+              placeholder="Standard Deviation" 
+            />
           </>
         )}
         {newStrategy.type === 'breakout' && (
           <>
-            <input name="breakout_period" type="number" onChange={handleParameterChange} placeholder="Breakout Period" />
-            <input name="channel_width" type="number" step="0.01" onChange={handleParameterChange} placeholder="Channel Width" />
+            <input 
+              name="breakout_period" 
+              type="number" 
+              onChange={handleParameterChange} 
+              placeholder="Breakout Period" 
+            />
+            <input 
+              name="channel_width" 
+              type="number" 
+              step="0.01" 
+              onChange={handleParameterChange} 
+              placeholder="Channel Width" 
+            />
           </>
         )}
         {newStrategy.type === 'ai_driven' && (
-          <select name="ai_model" onChange={handleParameterChange}>
+          <select 
+            name="ai_model" 
+            onChange={handleParameterChange}
+          >
             <option value="">Select AI Model</option>
             {/* Populate this with available AI models */}
           </select>
         )}
         <label>
-          <input name="isActive" type="checkbox" checked={newStrategy.isActive} onChange={handleInputChange} />
+          <input 
+            name="isActive" 
+            type="checkbox" 
+            checked={newStrategy.isActive} 
+            onChange={handleInputChange} 
+          />
           Active
         </label>
         <button type="submit">Add Strategy</button>
@@ -122,6 +173,6 @@ function TradingStrategyConfig() {
       </ul>
     </div>
   );
-}
+};
 
 export default TradingStrategyConfig;

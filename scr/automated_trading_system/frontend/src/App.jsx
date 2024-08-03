@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import StockConfig from './components/StockConfig';
-import DataProviderConfig from './components/DataProviderConfig';
+import Dashboard from './components/dashboard';
+import StockConfig from './components/StockConfig'; 
 import BrokerConfig from './components/BrokerConfig';
 import AIModelConfig from './components/AIModelConfig';
 import TradingStrategyConfig from './components/TradingStrategyConfig';
@@ -13,27 +12,24 @@ import SystemSettings from './components/SystemSettings';
 import PerformanceMonitoring from './components/PerformanceMonitoring';
 import DecisionEngineConfig from './components/DecisionEngineConfig';
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Dashboard} />
-          <Route path="/login" component={Login} />
-          <Route path="/stocks" component={StockConfig} />
-          <Route path="/data-providers" component={DataProviderConfig} />
-          <Route path="/brokers" component={BrokerConfig} />
-          <Route path="/ai-models" component={AIModelConfig} />
-          <Route path="/trading-strategies" component={TradingStrategyConfig} />
-          <Route path="/risk-management" component={RiskManagementConfig} />
-          <Route path="/system-settings" component={SystemSettings} />
-          <Route path="/performance" component={PerformanceMonitoring} />
-          <Route path="/decision-engine" component={DecisionEngineConfig} />
-        </Switch>
-      </div>
-    </Router>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/stocks" element={<StockConfig />} />
+        <Route path="/brokers" element={<BrokerConfig />} /> 
+        <Route path="/ai-models" element={<AIModelConfig />} />
+        <Route path="/trading-strategies" element={<TradingStrategyConfig />} />
+        <Route path="/risk-management" element={<RiskManagementConfig />} />
+        <Route path="/system-settings" element={<SystemSettings />} />
+        <Route path="/performance" element={<PerformanceMonitoring />} />
+        <Route path="/decision-engine" element={<DecisionEngineConfig />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

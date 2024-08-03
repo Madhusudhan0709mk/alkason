@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Dashboard() {
+const Dashboard = () => {
   const [systemStatus, setSystemStatus] = useState({});
   const [recentTrades, setRecentTrades] = useState([]);
+
 
   useEffect(() => {
     fetchSystemStatus();
@@ -22,11 +23,13 @@ function Dashboard() {
   const fetchRecentTrades = async () => {
     try {
       const response = await axios.get('/api/trades/recent');
+      console.log(response.data); // Check if this is an array
       setRecentTrades(response.data);
     } catch (error) {
       console.error('Error fetching recent trades:', error);
     }
   };
+  
 
   return (
     <div className="dashboard">
@@ -39,15 +42,19 @@ function Dashboard() {
         <p>Active Stocks: {systemStatus.activeStocksCount}</p>
       </div>
       <div className="recent-trades">
-        <h2>Recent Trades</h2>
-        <ul>
-          {recentTrades.map((trade, index) => (
-            <li key={index}>
-              {trade.symbol} - {trade.action} - {trade.price} - {trade.timestamp}
-            </li>
-          ))}
-        </ul>
-      </div>
+  <h2>Recent Trades</h2>
+  <ul>
+    {Array.isArray(recentTrades) ? (
+      recentTrades.map((trade, index) => (
+        <li key={index}>
+          {trade.symbol} - {trade.action} - {trade.price} - {trade.timestamp}
+        </li>
+      ))
+    ) : (
+      <li>No recent trades available.</li>
+    )}
+  </ul>
+</div>
     </div>
   );
 }

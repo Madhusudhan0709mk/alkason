@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-function DecisionEngineConfig() {
+const DecisionEngineConfig = () => {
   const [config, setConfig] = useState({
     rsi_oversold: 30,
     rsi_overbought: 70,
@@ -16,6 +16,7 @@ function DecisionEngineConfig() {
     bearish_keywords: [],
     risk_per_trade: 0.02
   });
+
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
@@ -35,9 +36,9 @@ function DecisionEngineConfig() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setConfig(prevConfig => ({
+    setConfig((prevConfig) => ({
       ...prevConfig,
-      [name]: name.includes('keywords') ? value.split(',').map(k => k.trim()) : parseFloat(value)
+      [name]: name.includes('keywords') ? value.split(',').map((k) => k.trim()) : parseFloat(value)
     }));
   };
 
@@ -162,6 +163,6 @@ function DecisionEngineConfig() {
       </CardContent>
     </Card>
   );
-}
+};
 
 export default DecisionEngineConfig;

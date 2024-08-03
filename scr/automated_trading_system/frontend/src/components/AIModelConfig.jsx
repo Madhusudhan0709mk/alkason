@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function AIModelConfig() {
+const AIModelConfig = () => {
   const [aiModels, setAIModels] = useState([]);
   const [newModel, setNewModel] = useState({ 
     name: '', 

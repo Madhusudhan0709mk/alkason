@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function DataProviderConfig() {
+const DataProviderConfig = () => {
   const [providers, setProviders] = useState([]);
   const [newProvider, setNewProvider] = useState({ 
     name: '', 
@@ -97,6 +97,6 @@ function DataProviderConfig() {
       </ul>
     </div>
   );
-}
+};
 
 export default DataProviderConfig;
