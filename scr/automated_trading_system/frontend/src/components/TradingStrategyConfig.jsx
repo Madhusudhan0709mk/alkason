@@ -158,7 +158,7 @@ const TradingStrategyConfig = () => {
           />
           Active
         </label>
-        <button type="submit">Add Strategy</button>
+        <button type="submit" class="btn btn-primary">Add Strategy</button>
       </form>
       <ul>
         {strategies.map((strategy) => (

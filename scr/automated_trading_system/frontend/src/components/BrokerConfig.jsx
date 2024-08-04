@@ -149,7 +149,7 @@ const BrokerConfig = () => {
           />
           Active
         </label>
-        <button type="submit">Add Broker</button>
+        <button type="submit" class="btn btn-primary">Add Broker</button>
       </form>
       <ul>
         {brokers.map((broker) => (

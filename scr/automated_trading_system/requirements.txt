@@ -40,7 +40,7 @@ pyyaml
 python-dotenv
 
 # Dependency injection
-dependency-injector
+# dependency-injector
 
 # Logging
 loguru
@@ -74,5 +74,5 @@ gunicorn
 # Monitoring
 prometheus-client
 
-# Documentation
-Sphinx
+# # Documentation
+# Sphinx

@@ -114,7 +114,7 @@ const SystemSettings = () => {
             onChange={handleInputChange} 
           />
         </div>
-        <button type="submit">Update System Settings</button>
+        <button type="submit" class="btn btn-primary">Update System Settings</button>
       </form>
     </div>
   );

@@ -158,7 +158,7 @@ const DecisionEngineConfig = () => {
               <AlertDescription>Configuration updated successfully</AlertDescription>
             </Alert>
           )}
-          <Button type="submit">Update Decision Engine Configuration</Button>
+          <Button type="submit" class="btn btn-primary">Update Decision Engine Configuration</Button>
         </form>
       </CardContent>
     </Card>

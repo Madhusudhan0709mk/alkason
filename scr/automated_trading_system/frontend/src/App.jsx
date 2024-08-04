@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import DataProviderConfig from './components/DataProviderConfig';
 import Navbar from './components/Navbar';
 import Dashboard from './components/dashboard';
 import StockConfig from './components/StockConfig'; 
@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/stocks" element={<StockConfig />} />
         <Route path="/brokers" element={<BrokerConfig />} /> 
         <Route path="/ai-models" element={<AIModelConfig />} />
+        <Route path="/data-providers" element={<DataProviderConfig />} />
         <Route path="/trading-strategies" element={<TradingStrategyConfig />} />
         <Route path="/risk-management" element={<RiskManagementConfig />} />
         <Route path="/system-settings" element={<SystemSettings />} />

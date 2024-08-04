@@ -49,7 +49,7 @@ const RiskManagementConfig = () => {
             onChange={handleInputChange} 
           />
         </div>
-        <button type="submit">Update Risk Management Configuration</button>
+        <button type="submit" class="btn btn-primary">Update Risk Management Configuration</button>
       </form>
     </div>
   );

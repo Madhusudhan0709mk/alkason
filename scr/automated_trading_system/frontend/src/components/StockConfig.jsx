@@ -139,7 +139,7 @@ const fetchStocks = async () => {
           />
           Active
         </label>
-        <button type="submit">Add Stock</button>
+        <button type="submit" class="btn btn-primary">Add Stock</button>
       </form>
       <ul>
         {stocks.length > 0 ? (
